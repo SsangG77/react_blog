@@ -2,7 +2,7 @@
 import './App.css';
 import {useState} from "react"
 
-let title = 'Dockam 언제나옴?'
+let titlet = 'Dockam 안나옴'
 let styleObj = {
   color : 'green',
   fontSize : '40px'
@@ -16,30 +16,42 @@ function App() {
 
   let [like, setLike] = useState(0)
 
-
+  let [title, setTitle] = useState(['노션 그래프화 하기', '갤럭시 폴드 5', '좌식의자 구매후기']);
 
   return (
     <div className="App">
       <div className='black_nav'>
         <h4>블로그</h4>
       </div>
-      <h3 style= {styleObj}>{title}</h3>
+
+    <button onClick={() => {
+      let copy = [...title];
+      setTitle(copy.sort())
+      console.log(title)
+
+    }}>
+      정렬
+    </button>
+
+
+
+      <h3 style= {styleObj}>{titlet}</h3>
       <div className='list'>
         <h4>
-          { coat }
+          { title[0] }
           <span onClick={() => {setLike(like + 1)}}>👍</span> {like}
         </h4>
         <p>22/02/17</p>
       </div>
       <div className='list'>
         <h4>
-          { food }
-          <span onClick={() => setCoat('여자 코트 추천')}>Click!</span> { 0 }
+          { title[1] }
+          <span onClick={() => setCoat('여자 코트 추천')}> Click!</span> { 0 }
           </h4>
         <p>22/02/17</p>
       </div>
       <div className='list'>
-        <h4>{ react }</h4>
+        <h4>{ title[2] }</h4>
         <p>22/02/17</p>
       </div>
       
